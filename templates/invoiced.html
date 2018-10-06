@@ -1,0 +1,42 @@
+{% extends 'layout.html'%}
+
+{% block content%}
+<body>
+  <div class="container">
+    <table class="table">
+      <thead>
+    <tr>
+        <th>User company</th>
+        <th>User name</th>
+        <th>email</th>
+        <th>Fee_one</th>
+        <th>Fee_two</th>
+        <th>Fee_three</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for invoice in students %}
+      <tr>
+      
+          <td>
+                                
+          {{invoice.get('company')}}<br>
+          {{invoice.get('name')}}<br>
+          {{invoice.get('user_email')}}<br>
+          {{invoice.get('design_fee')}}
+          {{invoice.get('hosting_fee')}}
+          {{invoice.get('domain_fee')}}
+          </td>
+
+
+        
+      </tr>
+      {% endfor %}
+
+    </tbody>
+
+    </table>
+    <a href="{{url_for('invoice')}}"><button  class="btn btn-primary">Generate</button></a>
+  </div>
+</body>
+{% endblock %}
